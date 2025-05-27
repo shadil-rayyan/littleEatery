@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -9,21 +10,6 @@ type Review = {
   name: string;
   text: string;
 };
-
-const reviews: Review[] = [
-  {
-    name: "Shadil AM",
-    text: "The fried chicken tasted absolutely amazing! It was crispy on the outside. Definitely one of the best I’ve had!",
-  },
-  {
-    name: "Adwaith",
-    text: "Loved the fried chicken! Perfectly seasoned and cooked to perfection. Every bite was full of flavor!",
-  },
-  {
-    name: "Aqil",
-    text: "One of the best fried chickens I’ve had! The flavors were spot on, and the crispy texture made it even better.",
-  },
-];
 
 const ReviewItem = ({ review }: { review: Review }) => {
   return (
@@ -38,6 +24,22 @@ const ReviewItem = ({ review }: { review: Review }) => {
 
 const Reviews = () => {
   const [sliderRef, setSliderRef] = useState<Slider | null>(null);
+  const [reviews, setReviews] = useState<Review[]>([]);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await fetch("data.json");
+        const data = await response.json();
+        setReviews(data.reviews || []);
+      } catch (error) {
+        console.error("Error fetching reviews from data.json:", error);
+      }
+    };
+
+    fetchReviews();
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -52,6 +54,7 @@ const Reviews = () => {
       <b className="leading-tight inline-block font-david-libre md:text-[40px] text-[28px]">
         Our Happy Customers
       </b>
+
       <Slider
         {...settings}
         ref={(slider) => setSliderRef(slider)}
@@ -65,7 +68,7 @@ const Reviews = () => {
       <div className="absolute w-full top-[65%] flex justify-between items-center px-4 md:px-60">
         <button
           onClick={() => sliderRef?.slickPrev()}
-          className=" bg-white/80 p-2 rounded-full shadow-lg z-30 hover:bg-white transition-colors"
+          className="bg-white/80 p-2 rounded-full shadow-lg z-30 hover:bg-white transition-colors"
           aria-label="Previous Slide"
         >
           <ChevronLeft className="w-6 h-6" />

@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { Loader, FileText } from "lucide-react";
 
-// Set the worker
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 interface PDFDocumentLoadSuccess {
@@ -12,17 +11,30 @@ interface PDFDocumentLoadSuccess {
 }
 
 const Menu = () => {
+  const [pdfPath, setPdfPath] = useState<string | null>(null);
   const [numPages, setNumPages] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [containerWidth, setContainerWidth] = useState(0);
 
-  // Update width on load and resize
+  // Fetch data.json and extract the menu PDF path
   useEffect(() => {
-    const updateWidth = () => {
-      setContainerWidth(window.innerWidth);
+    const fetchPath = async () => {
+      try {
+        const response = await fetch("/data.json");
+        const json = await response.json();
+        setPdfPath(json.documents.menu);
+      } catch (err) {
+        setError("Failed to load configuration");
+        setLoading(false);
+      }
     };
 
+    fetchPath();
+  }, []);
+
+  useEffect(() => {
+    const updateWidth = () => setContainerWidth(window.innerWidth);
     updateWidth();
     window.addEventListener("resize", updateWidth);
     return () => window.removeEventListener("resize", updateWidth);
@@ -51,21 +63,23 @@ const Menu = () => {
       {error && (
         <div className="flex flex-col items-center justify-center py-12">
           <FileText className="w-16 h-16 text-red-500 mb-4" />
-          <p className="text-gray-600 mb-4">Unable to load PDF</p>
-          <a
-            href="./menu/orm.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-          >
-            Open PDF in New Tab
-          </a>
+          <p className="text-gray-600 mb-4">{error}</p>
+          {pdfPath && (
+            <a
+              href={pdfPath}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Open PDF in New Tab
+            </a>
+          )}
         </div>
       )}
 
-      {!error && (
+      {!error && pdfPath && (
         <Document
-          file="./menu/orm.pdf"
+          file={pdfPath}
           onLoadSuccess={onDocumentLoadSuccess}
           onLoadError={onDocumentLoadError}
           loading={null}

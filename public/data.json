@@ -1,0 +1,133 @@
+{
+  "images": {
+    "logo": "/images/logo 2.png"
+  },
+  "documents": {
+    "menu": "/menu/orm.pdf"
+  },
+  "mainsection": {
+    "heading": "Don't wanna Make you Have A Bad day",
+    "subheading": "Our job is delivering a delicious food with fast, free delivery and easy.",
+    "googleMapLink": "https://maps.app.goo.gl/VFrpYxKiSfWgq7479",
+    "socialLinks": {
+      "facebook": "/",
+      "instagram": "/",
+      "twitter": "/"
+    },
+    "slides": [
+      "/images/foodimg-1.jpeg",
+      "/images/foodimg-2.jpeg",
+      "/images/foodimg-3.jpeg",
+      "/images/foodimg-4.jpeg",
+      "/images/4.jpeg",
+      "/images/1.jpeg",
+      "/images/2.jpeg",
+      "/images/3.jpeg",
+      "/images/5.jpeg",
+      "/images/6.jpeg",
+      "/images/7.jpeg"
+    ]
+  },
+  "reviews": [
+    {
+      "name": "Shadil AM",
+      "text": "The fried chicken tasted absolutely amazing! It was crispy on the outside. Definitely one of the best I’ve had!"
+    },
+    {
+      "name": "Adwaith",
+      "text": "Loved the fried chicken! Perfectly seasoned and cooked to perfection. Every bite was full of flavor!"
+    },
+    {
+      "name": "Aqil",
+      "text": "One of the best fried chickens I’ve had! The flavors were spot on, and the crispy texture made it even better."
+    }
+  ],
+  "foodItems": [
+    {
+      "id": 1,
+      "name": "Special Roll",
+      "price": "120 ₹",
+      "rating": "4.5",
+      "img": "./images/specialroll.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "Chicken Bucket",
+      "price": "399 ₹",
+      "rating": "4.7",
+      "img": "./images/chickenbucket.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "White Penne Pasta",
+      "price": "190 ₹",
+      "rating": "4.8",
+      "img": "./images/whitepeenepasta.jpeg"
+    },
+    {
+      "id": 4,
+      "name": "Dosa",
+      "price": "40 ₹",
+      "rating": "4.6",
+      "img": "./images/dosa.jpeg"
+    },
+    {
+      "id": 5,
+      "name": "Burger",
+      "price": "130 ₹",
+      "rating": "4.4",
+      "img": "./images/burger.jpeg"
+    }
+  ],
+  "footer": {
+    "logo": "./images/footerlogo.png",
+    "links": [
+      { "href": "/", "label": "Contact Us" },
+      { "href": "/", "label": "About us" },
+      { "href": "/", "label": "Order Delivery" },
+      { "href": "/", "label": "Terms of Services" }
+    ],
+    "socialMedia": [
+      {
+        "href": "/",
+        "icon": "facebook",
+        "color": "#f9803a",
+        "hoverColor": "#2761b8"
+      },
+      {
+        "href": "/",
+        "icon": "instagram",
+        "color": "#f9803a",
+        "hoverColor": "#cd2f8b"
+      },
+      {
+        "href": "/",
+        "icon": "twitter",
+        "color": "#EA6D27",
+        "hoverColor": "#2b6be3"
+      },
+      {
+        "href": "/",
+        "icon": "linkedin",
+        "color": "#EA6D27",
+        "hoverColor": "#2b6be3"
+      }
+    ]
+  },
+  
+  "shortListInfo": {
+      "delivery": {
+        "title": "Delivery Available",
+        "time": "Working time 3:30 am to 12 pm"
+      },
+      "location": {
+        "title": "Opposite Anfield turf, Beach Road, Kappad, Kozhikode",
+        "subtitle": "Our location"
+      },
+      "phone": {
+        "number": "9207437556, 9207537556",
+        "subtitle": "Phone number"
+      }
+  }
+  
+}
