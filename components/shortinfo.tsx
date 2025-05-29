@@ -59,7 +59,7 @@ const ShortListInfo: React.FC = () => {
             />
           </svg>
         </div>
-        <b>{delivery.title}</b>
+        <b>Delivery Available</b>
         <p className="text-gray-600 font-poppins">{delivery.time}</p>
       </div>
 
@@ -93,7 +93,7 @@ const ShortListInfo: React.FC = () => {
           </svg>
         </div>
         <b className="text-center">{location.title}</b>
-        <p className="text-gray-600">{location.subtitle}</p>
+        <p className="text-gray-600">Our location</p>
       </div>
 
       {/* Phone */}
@@ -113,7 +113,7 @@ const ShortListInfo: React.FC = () => {
           </svg>
         </div>
         <b>{phone.number}</b>
-        <p className="text-gray-600">{phone.subtitle}</p>
+        <p className="text-gray-600">Phone Number</p>
       </div>
     </div>
   );

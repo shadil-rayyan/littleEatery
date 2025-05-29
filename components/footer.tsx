@@ -1,45 +1,9 @@
 "use client";
 import { memo } from "react";
 import Link from "next/link";
+import data from '@/public/data.json'; // adjust path accordingly
 
-// Replace this with import from JSON if needed
-const footerData = {
-  logo: "./images/footerlogo.png",
-  links: [
-    { href: "/", label: "Contact Us" },
-    { href: "/", label: "About us" },
-    { href: "/", label: "Order Delivery" },
-    { href: "/", label: "Terms of Services" },
-  ],
-  socialMedia: [
-    {
-      href: "/",
-      icon: "facebook",
-      color: "#f9803a",
-      hoverColor: "#2761b8",
-    },
-    {
-      href: "/",
-      icon: "instagram",
-      color: "#f9803a",
-      hoverColor: "#cd2f8b",
-    },
-    {
-      href: "/",
-      icon: "twitter",
-      color: "#EA6D27",
-      hoverColor: "#2b6be3",
-    },
-    {
-      href: "/",
-      icon: "linkedin",
-      color: "#EA6D27",
-      hoverColor: "#2b6be3",
-    },
-  ],
-};
-
-// SVG icon components keyed by icon name
+// SVG icons keyed by icon name
 const icons = {
   facebook: (
     <path
@@ -88,18 +52,9 @@ const Footer = memo(() => {
         />
       </div>
 
-      {/* Navigation Links */}
-      <div className="text-gray-600 lg:text-[15px] text-[10px] md:leading-tight flex gap-6">
-        {footerData.links.map(({ href, label }) => (
-          <Link key={label} href={href} className="hover:text-blue-600 transition-colors">
-            {label}
-          </Link>
-        ))}
-      </div>
-
       {/* Social Media Icons */}
       <div className="flex flex-row gap-6 lg:gap-10 md:gap-6 items-center justify-start sm:justify-start">
-        {footerData.socialMedia.map(({ href, icon, color, hoverColor }) => (
+        {footerData.socialMedia.map(({ href, icon }) => (
           <div
             key={icon}
             className="bg-[#fdb66f8a] p-1 rounded-full cursor-pointer"
@@ -111,11 +66,8 @@ const Footer = memo(() => {
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
-                fill={color}
+                fill="#f9803a"
                 viewBox="0 0 24 24"
-                style={{ transition: "color 0.3s" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = hoverColor)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = color)}
               >
                 {icons[icon as keyof typeof icons]}
               </svg>
@@ -126,5 +78,6 @@ const Footer = memo(() => {
     </footer>
   );
 });
+const footerData = data.footer;
 
 export default Footer;

@@ -13,8 +13,8 @@ type Review = {
 
 const ReviewItem = ({ review }: { review: Review }) => {
   return (
-    <div className="border-2 p-8 rounded-md relative flex flex-col items-center min-h-[200px] gap-4 ">
-      <p className="lg:mb-20 md:mb-16 mb-8 text-md text-gray-700 leading-relaxed">
+    <div className="border-2 p-8 rounded-md relative flex flex-col items-center   ">
+      <p className="lg:mb-5 md:mb-5 mb-8 text-md text-gray-700 leading-relaxed">
         {review.text}
       </p>
       <b className="text-gray-900 ">{review.name}</b>
@@ -58,15 +58,15 @@ const Reviews = () => {
       <Slider
         {...settings}
         ref={(slider) => setSliderRef(slider)}
-        className="mt-12 mx-auto md:w-[60%] w-[75%]"
+        className="mt-12 mx-auto  lg:w-[40%] md:w-[60%] w-[75%]"
       >
         {reviews.map((review, index) => (
           <ReviewItem key={index} review={review} />
         ))}
       </Slider>
 
-      <div className="absolute w-full top-[65%] flex justify-between items-center px-4 md:px-60">
-        <button
+      <div className="absolute w-[95%] lg:w-[50%] md:w-[80%] top-[65%] left-1/2 -translate-x-1/2 flex justify-between items-center px-1">
+      <button
           onClick={() => sliderRef?.slickPrev()}
           className="bg-white/80 p-2 rounded-full shadow-lg z-30 hover:bg-white transition-colors"
           aria-label="Previous Slide"

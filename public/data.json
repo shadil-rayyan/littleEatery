@@ -79,55 +79,24 @@
       "img": "./images/burger.jpeg"
     }
   ],
-  "footer": {
-    "logo": "./images/footerlogo.png",
-    "links": [
-      { "href": "/", "label": "Contact Us" },
-      { "href": "/", "label": "About us" },
-      { "href": "/", "label": "Order Delivery" },
-      { "href": "/", "label": "Terms of Services" }
-    ],
-    "socialMedia": [
-      {
-        "href": "/",
-        "icon": "facebook",
-        "color": "#f9803a",
-        "hoverColor": "#2761b8"
-      },
-      {
-        "href": "/",
-        "icon": "instagram",
-        "color": "#f9803a",
-        "hoverColor": "#cd2f8b"
-      },
-      {
-        "href": "/",
-        "icon": "twitter",
-        "color": "#EA6D27",
-        "hoverColor": "#2b6be3"
-      },
-      {
-        "href": "/",
-        "icon": "linkedin",
-        "color": "#EA6D27",
-        "hoverColor": "#2b6be3"
-      }
-    ]
-  },
-  
+    "footer": {
+      "logo": "./images/footerlogo.png",
+      "socialMedia": [
+        { "href": "/", "icon": "facebook" },
+        { "href": "/", "icon": "instagram" },
+        { "href": "/", "icon": "twitter" },
+        { "href": "/", "icon": "linkedin" }
+      ]
+    },
   "shortListInfo": {
       "delivery": {
-        "title": "Delivery Available",
         "time": "Working time 3:30 am to 12 pm"
       },
       "location": {
-        "title": "Opposite Anfield turf, Beach Road, Kappad, Kozhikode",
-        "subtitle": "Our location"
+        "title": "Opposite Anfield turf, Beach Road, Kappad, Kozhikode"
       },
       "phone": {
-        "number": "9207437556, 9207537556",
-        "subtitle": "Phone number"
-      }
+        "number": "9207437556, 9207537556"      }
   }
   
 }
